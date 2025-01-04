@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players and Biographies</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #f4f4f9, #ffcccc); /* Light red gradient */
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #D32F2F; /* Red background */
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+        }
+
+        /* Main Section */
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+
+        /* Player List */
+        .player-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .player-list li {
+            flex: 0 0 200px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .player-list li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .player-list img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .player-list span {
+            display: block;
+            padding: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #D32F2F; /* Red color */
+        }
+
+        /* Biography Container */
+        .bio-container {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .bio-container.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .bio-container img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .bio-container h3 {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #D32F2F; /* Red color */
+        }
+        .bio-container p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        .button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #D32F2F; /* Red background */
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #C2185B; /* Darker red on hover */
+        }
+
+        /* Navigation Menu */
+        nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.2rem;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #D32F2F; /* Red background */
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a:hover {
+            background-color: #C2185B; /* Darker red on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Meet the Jupiter FC players</h1>
+        <p>Click on a player to learn more about them.</p>
+        <nav>
+            <a href="club_history.html">Jupiter FC</a> <!-- Link to Club History page -->
+        </nav>
+    </header>
+
+    <main>
+        <ul class="player-list">
+            <li onclick="showBio('player1')">
+                <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Faraz Tamjid Khan">
+                <span>Faraz Tamjid Khan</span>
+            </li>
+            <li onclick="showBio('player2')">
+                <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Ishmam Tanzir">
+                <span>Ishmam Tanzir</span>
+            </li>
+            <li onclick="showBio('player3')">
+                <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Arafat Zaman">
+                <span>Arafat Zaman</span>
+            </li>
+        </ul>
+
+        <div class="bio-container" id="bioContainer">
+            <img id="playerImage" src="" alt="Player Image">
+            <h3 id="playerName"></h3>
+            <p id="playerBio"></p>
+            <a class="button" onclick="goBack()">Back to Player List</a>
+        </div>
+    </main>
+    <script>
+        const players = {
+            player1: {
+                name: "Faraz Tamjid Khan",
+                bio: "Player 1 is a talented athlete with numerous achievements in their sport. Known for their dedication and skill, they have inspired many fans worldwide. Over the years, Player 1 has honed their technique, blending natural talent with relentless hard work. Their journey began in a small town, where they trained tirelessly, dreaming of playing at the highest level. After years of sacrifice, Player 1 finally made it to the big leagues, where their impact has been undeniable. With numerous awards and accolades, Player 1 remains a role model for aspiring athletes.",
+                img: "https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain"
+            },
+            player2: {
+                name: "Ishmam Tanzir",
+                bio: "Player 2 is a rising star, making waves in the sports world. Their determination and work ethic are truly remarkable. Hailing from a background where opportunities were scarce, Player 2's success is a testament to their resilience. Every setback has only fueled their desire to improve, and their growth has been meteoric. As they continue to break records and defy expectations, Player 2 has quickly become a fan favorite. Their ability to perform under pressure has earned them respect from both teammates and rivals alike.",
+                img: "https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain"
+            },
+            player3: {
+                name: "Arafat Zaman",
+                bio: "Player 3 is a veteran player with a long and successful career. Their leadership and experience make them an invaluable asset to their team. With a career spanning over two decades, Player 3 has seen the highs and lows of the sports world. Through it all, they’ve maintained a level of excellence that few can match. Player 3’s on-field vision and calm demeanor in crucial moments have made them a key figure in every team they've played for. Outside of their athletic prowess, Player 3 has also worked as a mentor for younger players, sharing their wisdom and guiding the next generation of stars.",
+                img: "https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain"
+            }
+        };
+
+        function showBio(playerKey) {
+            const bioContainer = document.getElementById('bioContainer');
+            const playerName = document.getElementById('playerName');
+            const playerBio = document.getElementById('playerBio');
+            const playerImage = document.getElementById('playerImage');
+
+            const player = players[playerKey];
+            if (player) {
+                playerName.textContent = player.name;
+                playerBio.textContent = player.bio;
+                playerImage.src = player.img;
+
+                // Make container visible and apply animation
+                bioContainer.style.display = 'block';
+                setTimeout(() => {
+                    bioContainer.classList.add('active');
+                }, 10);
+            }
+        }
+
+        function goBack() {
+            const bioContainer = document.getElementById('bioContainer');
+            bioContainer.classList.remove('active');
+
+            // Hide container after animation
+            setTimeout(() => {
+                bioContainer.style.display = 'none';
+            }, 500);
+        }
+    </script>
+</body>
+</html>
+
