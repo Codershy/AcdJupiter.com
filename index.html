@@ -212,7 +212,6 @@
                 <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Arafat Zaman">
                 <span>Arafat Zaman</span>
             </li>
-            <!-- New Players -->
             <li onclick="showBio('player4')">
                 <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Raian Mahdi">
                 <span>Raian Mahdi</span>
@@ -232,6 +231,10 @@
             <li onclick="showBio('player8')">
                 <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Jayed Bin Abdul Aziz">
                 <span>Jayed Bin Abdul Aziz</span>
+            </li>
+            <li onclick="showBio('player9')">
+                <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Md.Shafayet Ullah Khan">
+                <span>Md.Shafayet Ullah Khan</span>
             </li>
         </ul>
 
@@ -284,6 +287,11 @@
                 name: "Jayed Bin Abdul Aziz",
                 bio: "Jayed Bin Abdul Aziz is a strong defender with excellent leadership skills...",
                 img: "https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain"
+            },
+            player9: {
+                name: "Md.Shafayet Ullah Khan",
+                bio: "Md. Shafayet Ullah Khan is a skilled forward with a natural goal-scoring ability...",
+                img: "https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain"
             }
         };
 
@@ -292,12 +300,11 @@
             const playerName = document.getElementById('playerName');
             const playerBio = document.getElementById('playerBio');
             const playerImage = document.getElementById('playerImage');
-
-            const player = players[playerKey];
-            playerName.textContent = player.name;
-            playerBio.textContent = player.bio;
-            playerImage.src = player.img;
-
+            
+            playerName.textContent = players[playerKey].name;
+            playerBio.textContent = players[playerKey].bio;
+            playerImage.src = players[playerKey].img;
+            
             bioContainer.classList.add('active');
         }
 
