@@ -35,20 +35,13 @@
         nav {
             position: absolute;
             top: 20px;
-            display: flex;
-            justify-content: space-between;
-            width: calc(100% - 40px);
+            left: 20px; /* Align navigation to the left */
             font-size: 1.2rem;
-            gap: 20px;
-        }
-
-        /* Left Navigation */
-        .nav-left {
             display: flex;
             gap: 20px;
         }
 
-        .nav-left a {
+        nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
@@ -59,33 +52,40 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .nav-left a:hover {
+        nav a:hover {
             background-color: #C2185B; /* Darker red on hover */
             transform: translateY(-3px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* Right Navigation (Voting) */
-        .nav-right {
-            display: flex;
-            gap: 20px;
+        nav a:active {
+            transform: translateY(1px);
         }
 
-        .nav-right a {
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
+        /* Voting Tab Styling */
+        .voting-tab {
+            position: absolute;
+            top: 20px;
+            right: 20px; /* Align voting tab to the right */
+            background-color: #FFEB3B; /* Yellow background */
+            color: white;
             padding: 10px 20px;
             border-radius: 5px;
-            background-color: #FFEB3B; /* Yellow background */
-            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.2rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
         }
 
-        .nav-right a:hover {
+        .voting-tab:hover {
             background-color: #FBC02D; /* Darker yellow on hover */
             transform: translateY(-3px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .voting-tab:active {
+            transform: translateY(1px);
         }
 
         /* Main Section */
@@ -191,17 +191,12 @@
     <header>
         <h1>Meet the Jupiter FC players</h1>
         <p>Click on a player to learn more about them.</p>
-    </header>
-
-    <nav>
-        <div class="nav-left">
+        <nav>
             <a href="club_history.html">Jupiter FC</a> <!-- Link to Club History page -->
             <a href="announcements.html">Announcements</a> <!-- Link to Announcements page -->
-        </div>
-        <div class="nav-right">
-            <a href="voting.html">Voting</a> <!-- Link to Voting page -->
-        </div>
-    </nav>
+        </nav>
+        <a href="voting.html" class="voting-tab">Voting</a> <!-- Voting Tab on the Right -->
+    </header>
 
     <main>
         <ul class="player-list">
@@ -216,6 +211,27 @@
             <li onclick="showBio('player3')">
                 <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Arafat Zaman">
                 <span>Arafat Zaman</span>
+            </li>
+            <!-- New Players -->
+            <li onclick="showBio('player4')">
+                <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Raian Mahdi">
+                <span>Raian Mahdi</span>
+            </li>
+            <li onclick="showBio('player5')">
+                <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Kazi Arib">
+                <span>Kazi Arib</span>
+            </li>
+            <li onclick="showBio('player6')">
+                <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Arham Hossain">
+                <span>Arham Hossain</span>
+            </li>
+            <li onclick="showBio('player7')">
+                <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Raiyan Mahmud">
+                <span>Raiyan Mahmud</span>
+            </li>
+            <li onclick="showBio('player8')">
+                <img src="https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain" alt="Jayed Bin Abdul Aziz">
+                <span>Jayed Bin Abdul Aziz</span>
             </li>
         </ul>
 
@@ -243,6 +259,31 @@
                 name: "Arafat Zaman",
                 bio: "Player 3 is a veteran player with a long and successful career...",
                 img: "https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain"
+            },
+            player4: {
+                name: "Raian Mahdi",
+                bio: "Raian Mahdi is a young talent with incredible speed and agility on the field...",
+                img: "https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain"
+            },
+            player5: {
+                name: "Kazi Arib",
+                bio: "Kazi Arib is known for his excellent ball control and creative playmaking...",
+                img: "https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain"
+            },
+            player6: {
+                name: "Arham Hossain",
+                bio: "Arham Hossain is a versatile player who can play in various positions...",
+                img: "https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain"
+            },
+            player7: {
+                name: "Raiyan Mahmud",
+                bio: "Raiyan Mahmud is an experienced midfielder who is a key part of the team...",
+                img: "https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain"
+            },
+            player8: {
+                name: "Jayed Bin Abdul Aziz",
+                bio: "Jayed Bin Abdul Aziz is a strong defender with excellent leadership skills...",
+                img: "https://th.bing.com/th/id/OIP.EBey8CDIvNN0bzjAbl4yPwAAAA?rs=1&pid=ImgDetMain"
             }
         };
 
@@ -253,29 +294,17 @@
             const playerImage = document.getElementById('playerImage');
 
             const player = players[playerKey];
-            if (player) {
-                playerName.textContent = player.name;
-                playerBio.textContent = player.bio;
-                playerImage.src = player.img;
+            playerName.textContent = player.name;
+            playerBio.textContent = player.bio;
+            playerImage.src = player.img;
 
-                // Make container visible and apply animation
-                bioContainer.style.display = 'block';
-                setTimeout(() => {
-                    bioContainer.classList.add('active');
-                }, 10);
-            }
+            bioContainer.classList.add('active');
         }
 
         function goBack() {
             const bioContainer = document.getElementById('bioContainer');
             bioContainer.classList.remove('active');
-
-            // Hide container after animation
-            setTimeout(() => {
-                bioContainer.style.display = 'none';
-            }, 500);
         }
     </script>
 </body>
 </html>
-
